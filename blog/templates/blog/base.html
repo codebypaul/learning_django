@@ -35,21 +35,52 @@
                 <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                    <a href="{% url 'profile' %}" class="nav-link">Profile</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/ignup">Signup</a>
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Signup</a>
+                </li>
+                {% endif %}
             </ul>
             </div>
         </div>
         </nav>
         <div class="container">
-            {% block content %}
-    
-            {% endblock %}
-
+            <div class="row pt-5">
+                <div class="col-md-8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% block content %}
+            
+                    {% endblock content %}
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3>Sidebar content</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
