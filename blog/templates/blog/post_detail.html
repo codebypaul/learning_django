@@ -7,6 +7,12 @@
         <hr>
         <h1>{{ post.title }}</h1>
         <p>{{ post.content}}</p>
+        {% if object.author == user %}
+        <div>
+            <a href="{% url 'post-update' object.id %}" class="btn btn-outline-info">Update Post</a>
+            <a href="{% url 'post-delete' object.id %}" class="btn btn-outline-danger">Delete Post</a>
+        </div>
+        {% endif %}
     </div>    
 
 {% endblock content %}
