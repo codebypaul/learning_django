@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+    <div class="card mb-5 p-5">
+        <div class="media"></div>
+        <p><span>{{ post.author }}</span> on {{ post.date_posted|date:'h:i F d, Y' }}</p>
+        <hr>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content}}</p>
+    </div>    
+
+{% endblock content %}

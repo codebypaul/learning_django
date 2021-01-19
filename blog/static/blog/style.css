@@ -1,8 +1,17 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-body{
-    background: rgba(200,200,200,.2);
+body {
+  background: rgba(200, 200, 200, 0.2);
+}
+.rounded-circle {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.media {
+  display: flex;
 }
